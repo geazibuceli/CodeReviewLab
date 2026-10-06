@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-06",
+  "dataset": "data/dev.jsonl",
+  "dataset_sha256": "f4007402ebb2aaa5c552d1996c44f18b7e3446eaf5e4e67d4e9a94a7f8f00494",
+  "prompt_version": "review-v3",
+  "selected": "contextual",
+  "rule": "Highest finding F1, then valid-output rate, then basic/few-shot/contextual order",
+  "selection_scores": {
+    "basic": 0.036036036036036036,
+    "few-shot": 0.0,
+    "contextual": 0.06521739130434782
+  },
+  "rationale": "Contextual has the highest development F1, despite six failures and poor precision/recall. This is a reproducible experimental choice, not a quality endorsement. Reserved results were not used."
+}

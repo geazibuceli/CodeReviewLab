@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codereviewlab"
+version = "0.1.0"
+description = "Reproducible local Python review suggestions with static and LLM baselines"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["pydantic>=2.7,<3", "typer>=0.12,<1", "PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+inference = ["torch>=2.4,<3", "transformers>=4.46,<5", "accelerate>=1.1,<2", "peft>=0.14,<1"]
+training = [
+  "codereviewlab[inference]", "trl>=0.15,<0.16",
+  "datasets>=3,<5; python_version < '3.14'",
+  "datasets>=4,<5; python_version >= '3.14'",
+  "dill>=0.4.1; python_version >= '3.14'",
+]
+qlora = ["bitsandbytes>=0.45,<1"]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "build>=1,<2"]
+
+[project.scripts]
+codereviewlab = "codereviewlab.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"examples/*.py" = ["B006"]

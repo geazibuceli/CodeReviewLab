@@ -1,0 +1,13 @@
+dataset: data/training.jsonl
+evaluation_datasets: [data/dev.jsonl, data/test.jsonl]
+output_dir: checkpoints/lora
+fixture_only: false
+inference:
+  backend: llm
+  prompt: contextual
+  allow_download: false
+epochs: 1
+batch_size: 1
+gradient_accumulation_steps: 8
+lora_r: 8
+lora_alpha: 16

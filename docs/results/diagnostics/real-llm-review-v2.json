@@ -1,0 +1,99 @@
+{
+  "notice": "Review suggestions require human verification.",
+  "issues": [],
+  "results": [
+    {
+      "function": {
+        "path": "examples\\sample.py",
+        "name": "collect",
+        "start_line": 1,
+        "end_line": 3,
+        "code": "def collect(value, items=[]):\n    items.append(value)\n    return items",
+        "context": ""
+      },
+      "status": "inference_error",
+      "findings": [],
+      "error": "ProxyError: (MaxRetryError('HTTPSConnectionPool(host=\\'huggingface.co\\', port=443): Max retries exceeded with url: /api/models/Qwen/Qwen2.5-Coder-1.5B-Instruct (Caused by ProxyError(\\'Unable to connect to proxy\\', NewConnectionError(\"HTTPSConnection(host=\\'127.0.0.1\\', port=9): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\")))'), '(Request ID: c98be3a7-badd-462b-9765-2fe7539d5579)')",
+      "raw_response": null,
+      "metadata": {
+        "backend": "llm",
+        "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+        "prompt_version": "review-v2:basic",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 512,
+          "max_input_tokens": 4096,
+          "seed": 42
+        },
+        "device": "auto",
+        "latency_seconds": 5.74181919998955,
+        "peak_gpu_memory_bytes": null,
+        "adapter": null,
+        "adapter_hash": null
+      }
+    },
+    {
+      "function": {
+        "path": "examples\\sample.py",
+        "name": "indexed_total",
+        "start_line": 6,
+        "end_line": 10,
+        "code": "def indexed_total(items):\n    total = 0\n    for index in range(len(items) + 1):\n        total += items[index]\n    return total",
+        "context": ""
+      },
+      "status": "inference_error",
+      "findings": [],
+      "error": "ProxyError: (MaxRetryError('HTTPSConnectionPool(host=\\'huggingface.co\\', port=443): Max retries exceeded with url: /api/models/Qwen/Qwen2.5-Coder-1.5B-Instruct (Caused by ProxyError(\\'Unable to connect to proxy\\', NewConnectionError(\"HTTPSConnection(host=\\'127.0.0.1\\', port=9): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\")))'), '(Request ID: f1ea9e61-14d0-4571-a995-7e3469c4f35c)')",
+      "raw_response": null,
+      "metadata": {
+        "backend": "llm",
+        "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+        "prompt_version": "review-v2:basic",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 512,
+          "max_input_tokens": 4096,
+          "seed": 42
+        },
+        "device": "auto",
+        "latency_seconds": 2.185260600002948,
+        "peak_gpu_memory_bytes": null,
+        "adapter": null,
+        "adapter_hash": null
+      }
+    },
+    {
+      "function": {
+        "path": "examples\\sample.py",
+        "name": "safe_first",
+        "start_line": 13,
+        "end_line": 14,
+        "code": "async def safe_first(items):\n    return items[0] if items else None",
+        "context": ""
+      },
+      "status": "inference_error",
+      "findings": [],
+      "error": "ProxyError: (MaxRetryError('HTTPSConnectionPool(host=\\'huggingface.co\\', port=443): Max retries exceeded with url: /api/models/Qwen/Qwen2.5-Coder-1.5B-Instruct (Caused by ProxyError(\\'Unable to connect to proxy\\', NewConnectionError(\"HTTPSConnection(host=\\'127.0.0.1\\', port=9): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\")))'), '(Request ID: 594e246b-956e-4235-ad67-abba1da47a72)')",
+      "raw_response": null,
+      "metadata": {
+        "backend": "llm",
+        "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+        "prompt_version": "review-v2:basic",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 512,
+          "max_input_tokens": 4096,
+          "seed": 42
+        },
+        "device": "auto",
+        "latency_seconds": 2.187768200004939,
+        "peak_gpu_memory_bytes": null,
+        "adapter": null,
+        "adapter_hash": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "python": "3.14.0",
+  "packages": {
+    "torch": "2.14.0+cu130",
+    "transformers": "4.57.6",
+    "peft": "0.21.2",
+    "trl": "0.15.2",
+    "datasets": "4.8.5",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "0.36.2",
+    "tokenizers": "0.22.2",
+    "pydantic": "2.13.4",
+    "typer": "0.27.2",
+    "dill": "0.4.1",
+    "multiprocess": "0.70.16",
+    "pyarrow": "25.0.1"
+  }
+}

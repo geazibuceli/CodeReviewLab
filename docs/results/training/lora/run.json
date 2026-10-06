@@ -1,0 +1,45 @@
+{
+  "config": {
+    "inference": {
+      "backend": "llm",
+      "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+      "prompt": "contextual",
+      "device": "auto",
+      "max_input_tokens": 4096,
+      "max_new_tokens": 512,
+      "seed": 42,
+      "adapter": null,
+      "allow_download": false
+    },
+    "dataset": "data/training.jsonl",
+    "evaluation_datasets": [
+      "data/dev.jsonl",
+      "data/test.jsonl"
+    ],
+    "output_dir": "checkpoints/lora",
+    "fixture_only": false,
+    "qlora": false,
+    "epochs": 1.0,
+    "learning_rate": 0.0002,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "resume_from_checkpoint": null
+  },
+  "dataset_sha256": "b18c429e71e6b2d139c27639a223c1e304ab4ebc6600c26f95900a4a615553de",
+  "evaluation_hashes": {
+    "data/dev.jsonl": "f4007402ebb2aaa5c552d1996c44f18b7e3446eaf5e4e67d4e9a94a7f8f00494",
+    "data/test.jsonl": "7ef54c75b7ca271ea111d2c2758205f50a1e4a65f72f5bfa6b2fd7fd464614ee"
+  },
+  "fixture_only": false,
+  "status": "started",
+  "versions": {
+    "torch": "2.14.0+cu130",
+    "transformers": "4.57.6",
+    "peft": "0.21.2",
+    "trl": "0.15.2",
+    "datasets": "4.8.5"
+  }
+}

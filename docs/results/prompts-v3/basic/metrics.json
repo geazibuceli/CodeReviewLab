@@ -1,0 +1,39 @@
+{
+  "metrics": {
+    "examples": 84,
+    "processed": 80,
+    "failures": 4,
+    "coverage": 0.9523809523809523,
+    "true_positives": 2,
+    "false_positives": 67,
+    "expected_bugs": 42,
+    "finding_precision": 0.028985507246376812,
+    "bug_recall": 0.047619047619047616,
+    "correct_function_false_positive_rate": 0.85,
+    "localization_accuracy": 0.2,
+    "valid_output_rate": 0.9523809523809523,
+    "mean_latency_seconds": 1.8698995202382018,
+    "peak_gpu_memory_bytes": 3149914112
+  },
+  "dataset_sha256": "f4007402ebb2aaa5c552d1996c44f18b7e3446eaf5e4e67d4e9a94a7f8f00494",
+  "config": {
+    "backend": "llm",
+    "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+    "prompt": "basic",
+    "device": "auto",
+    "max_input_tokens": 4096,
+    "max_new_tokens": 512,
+    "seed": 42,
+    "adapter": null,
+    "allow_download": false
+  },
+  "matching_version": "category-line-v1",
+  "prompt_versions": [
+    "review-v3:basic"
+  ],
+  "output_parsing_version": "json-envelope-v1",
+  "adjudication_sha256": null,
+  "adjudications": [],
+  "notice": "Controlled synthetic benchmark; not real-repository performance."
+}

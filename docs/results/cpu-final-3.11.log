@@ -1,0 +1,343 @@
+Processing /tmp/codereviewlab
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting pydantic<3,>=2.7 (from codereviewlab==0.1.0)
+  Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 110.2/110.2 kB 1.6 MB/s eta 0:00:00
+Collecting typer<1,>=0.12 (from codereviewlab==0.1.0)
+  Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+Collecting PyYAML<7,>=6 (from codereviewlab==0.1.0)
+  Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting pytest<10,>=8 (from codereviewlab==0.1.0)
+  Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting ruff<1,>=0.9 (from codereviewlab==0.1.0)
+  Downloading ruff-0.16.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+Collecting build<2,>=1 (from codereviewlab==0.1.0)
+  Downloading build-1.6.1-py3-none-any.whl.metadata (5.6 kB)
+Requirement already satisfied: packaging>=24.0 in /usr/local/lib/python3.11/site-packages (from build<2,>=1->codereviewlab==0.1.0) (26.3)
+Collecting pyproject_hooks (from build<2,>=1->codereviewlab==0.1.0)
+  Downloading pyproject_hooks-1.3.3-py3-none-any.whl.metadata (1.3 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3,>=2.7->codereviewlab==0.1.0)
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.46.5 (from pydantic<3,>=2.7->codereviewlab==0.1.0)
+  Downloading pydantic_core-2.46.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting typing-extensions>=4.14.1 (from pydantic<3,>=2.7->codereviewlab==0.1.0)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.2 (from pydantic<3,>=2.7->codereviewlab==0.1.0)
+  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting iniconfig>=1.0.1 (from pytest<10,>=8->codereviewlab==0.1.0)
+  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest<10,>=8->codereviewlab==0.1.0)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest<10,>=8->codereviewlab==0.1.0)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting shellingham>=1.3.0 (from typer<1,>=0.12->codereviewlab==0.1.0)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer<1,>=0.12->codereviewlab==0.1.0)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer<1,>=0.12->codereviewlab==0.1.0)
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer<1,>=0.12->codereviewlab==0.1.0)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1,>=0.12->codereviewlab==0.1.0)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading build-1.6.1-py3-none-any.whl (31 kB)
+Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 472.6/472.6 kB 5.9 MB/s eta 0:00:00
+Downloading pydantic_core-2.46.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 10.4 MB/s eta 0:00:00
+Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.5/386.5 kB 5.6 MB/s eta 0:00:00
+Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 10.4 MB/s eta 0:00:00
+Downloading ruff-0.16.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 13.9 MB/s eta 0:00:00
+Downloading typer-0.27.2-py3-none-any.whl (123 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.1/123.1 kB 11.7 MB/s eta 0:00:00
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 17.5 MB/s eta 0:00:00
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 8.1 MB/s eta 0:00:00
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 3.9 MB/s eta 0:00:00
+Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading pyproject_hooks-1.3.3-py3-none-any.whl (10 kB)
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.7/91.7 kB 9.7 MB/s eta 0:00:00
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Building wheels for collected packages: codereviewlab
+  Building wheel for codereviewlab (pyproject.toml): started
+  Building wheel for codereviewlab (pyproject.toml): finished with status 'done'
+  Created wheel for codereviewlab: filename=codereviewlab-0.1.0-py3-none-any.whl size=23036 sha256=fcd0ace3a619501659caa7981b0082afe344318ae2c0be6b7f41b810862adbb1
+  Stored in directory: /tmp/pip-ephem-wheel-cache-4ckm2hq3/wheels/06/11/de/9a532caaeb50ca581a1b4be2ff64ac10770dfb111ac5ab0967
+Successfully built codereviewlab
+Installing collected packages: typing-extensions, shellingham, ruff, PyYAML, pyproject_hooks, pygments, pluggy, mdurl, iniconfig, annotated-types, annotated-doc, typing-inspection, pytest, pydantic-core, markdown-it-py, build, rich, pydantic, typer, codereviewlab
+Successfully installed PyYAML-6.0.3 annotated-doc-0.0.5 annotated-types-0.8.0 build-1.6.1 codereviewlab-0.1.0 iniconfig-2.3.0 markdown-it-py-4.2.0 mdurl-0.1.2 pluggy-1.6.0 pydantic-2.13.5 pydantic-core-2.46.5 pygments-2.21.0 pyproject_hooks-1.3.3 pytest-9.1.1 rich-15.0.0 ruff-0.16.10 shellingham-1.5.4 typer-0.27.2 typing-extensions-4.16.0 typing-inspection-0.4.4
+docker : WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the
+system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+No linha:2 caractere:37
++ ... tion).Path; docker run --rm --name codereviewlab-cpu-final-311 --cpus ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Runnin...o/warnings/venv:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+All checks passed!
+============================= test session starts ==============================
+platform linux -- Python 3.11.17, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tmp/codereviewlab
+configfile: pyproject.toml
+testpaths: tests
+collected 28 items
+
+tests/test_core.py ...............                                       [ 53%]
+tests/test_failures.py ....                                              [ 67%]
+tests/test_llm.py .......                                                [ 92%]
+tests/test_model_cache.py ..                                             [100%]
+
+============================== 28 passed in 0.26s ==============================
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=68
+  - wheel
+* Getting build dependencies for sdist...
+running egg_info
+writing src/codereviewlab.egg-info/PKG-INFO
+writing dependency_links to src/codereviewlab.egg-info/dependency_links.txt
+writing entry points to src/codereviewlab.egg-info/entry_points.txt
+writing requirements to src/codereviewlab.egg-info/requires.txt
+writing top-level names to src/codereviewlab.egg-info/top_level.txt
+reading manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.0.0
+  - wheel==0.48.0
+* Building sdist...
+running sdist
+running egg_info
+writing src/codereviewlab.egg-info/PKG-INFO
+writing dependency_links to src/codereviewlab.egg-info/dependency_links.txt
+writing entry points to src/codereviewlab.egg-info/entry_points.txt
+writing requirements to src/codereviewlab.egg-info/requires.txt
+writing top-level names to src/codereviewlab.egg-info/top_level.txt
+reading manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+running check
+creating codereviewlab-0.1.0
+creating codereviewlab-0.1.0/configs
+creating codereviewlab-0.1.0/data
+creating codereviewlab-0.1.0/docs
+creating codereviewlab-0.1.0/docs/results
+creating codereviewlab-0.1.0/docs/results/static-dev
+creating codereviewlab-0.1.0/examples
+creating codereviewlab-0.1.0/scripts
+creating codereviewlab-0.1.0/src/codereviewlab
+creating codereviewlab-0.1.0/src/codereviewlab.egg-info
+creating codereviewlab-0.1.0/tests
+copying files to codereviewlab-0.1.0...
+copying LICENSE -> codereviewlab-0.1.0
+copying MANIFEST.in -> codereviewlab-0.1.0
+copying README.md -> codereviewlab-0.1.0
+copying pyproject.toml -> codereviewlab-0.1.0
+copying configs/adapter.yaml -> codereviewlab-0.1.0/configs
+copying configs/baseline.yaml -> codereviewlab-0.1.0/configs
+copying configs/contextual.yaml -> codereviewlab-0.1.0/configs
+copying configs/few-shot.yaml -> codereviewlab-0.1.0/configs
+copying configs/fixture-adapter.yaml -> codereviewlab-0.1.0/configs
+copying configs/lora-fixture.yaml -> codereviewlab-0.1.0/configs
+copying configs/lora.yaml -> codereviewlab-0.1.0/configs
+copying configs/static.yaml -> codereviewlab-0.1.0/configs
+copying data/benchmark.jsonl -> codereviewlab-0.1.0/data
+copying data/dev.jsonl -> codereviewlab-0.1.0/data
+copying data/test.jsonl -> codereviewlab-0.1.0/data
+copying data/training-fixture.jsonl -> codereviewlab-0.1.0/data
+copying data/training.jsonl -> codereviewlab-0.1.0/data
+copying docs/architecture.md -> codereviewlab-0.1.0/docs
+copying docs/dataset-card.md -> codereviewlab-0.1.0/docs
+copying docs/evaluation.md -> codereviewlab-0.1.0/docs
+copying docs/experiments.md -> codereviewlab-0.1.0/docs
+copying docs/limitations.md -> codereviewlab-0.1.0/docs
+copying docs/model-card.md -> codereviewlab-0.1.0/docs
+copying docs/validation.md -> codereviewlab-0.1.0/docs
+copying docs/results/ml-runtime.json -> codereviewlab-0.1.0/docs/results
+copying docs/results/prompt-selection-protocol.md -> codereviewlab-0.1.0/docs/results
+copying docs/results/static-dev/metrics.json -> codereviewlab-0.1.0/docs/results/static-dev
+copying docs/results/static-dev/report.md -> codereviewlab-0.1.0/docs/results/static-dev
+copying examples/sample.py -> codereviewlab-0.1.0/examples
+copying scripts/build_dataset.py -> codereviewlab-0.1.0/scripts
+copying scripts/build_fixture.py -> codereviewlab-0.1.0/scripts
+copying scripts/build_training_data.py -> codereviewlab-0.1.0/scripts
+copying scripts/prompt_experiments.py -> codereviewlab-0.1.0/scripts
+copying scripts/run_references.py -> codereviewlab-0.1.0/scripts
+copying src/codereviewlab/__init__.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/cli.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/config.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/dataset.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/evaluation.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/extraction.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/llm.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/prompts.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/reports.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/schemas.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/static.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab/training.py -> codereviewlab-0.1.0/src/codereviewlab
+copying src/codereviewlab.egg-info/PKG-INFO -> codereviewlab-0.1.0/src/codereviewlab.egg-info
+copying src/codereviewlab.egg-info/SOURCES.txt -> codereviewlab-0.1.0/src/codereviewlab.egg-info
+copying src/codereviewlab.egg-info/dependency_links.txt -> codereviewlab-0.1.0/src/codereviewlab.egg-info
+copying src/codereviewlab.egg-info/entry_points.txt -> codereviewlab-0.1.0/src/codereviewlab.egg-info
+copying src/codereviewlab.egg-info/requires.txt -> codereviewlab-0.1.0/src/codereviewlab.egg-info
+copying src/codereviewlab.egg-info/top_level.txt -> codereviewlab-0.1.0/src/codereviewlab.egg-info
+copying tests/test_core.py -> codereviewlab-0.1.0/tests
+copying tests/test_failures.py -> codereviewlab-0.1.0/tests
+copying tests/test_llm.py -> codereviewlab-0.1.0/tests
+copying tests/test_model_cache.py -> codereviewlab-0.1.0/tests
+Writing codereviewlab-0.1.0/setup.cfg
+Creating tar archive
+removing 'codereviewlab-0.1.0' (and everything under it)
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=68
+  - wheel
+* Getting build dependencies for wheel...
+running egg_info
+writing src/codereviewlab.egg-info/PKG-INFO
+writing dependency_links to src/codereviewlab.egg-info/dependency_links.txt
+writing entry points to src/codereviewlab.egg-info/entry_points.txt
+writing requirements to src/codereviewlab.egg-info/requires.txt
+writing top-level names to src/codereviewlab.egg-info/top_level.txt
+reading manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.0.0
+  - wheel==0.48.0
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/codereviewlab
+copying src/codereviewlab/dataset.py -> build/lib/codereviewlab
+copying src/codereviewlab/config.py -> build/lib/codereviewlab
+copying src/codereviewlab/static.py -> build/lib/codereviewlab
+copying src/codereviewlab/evaluation.py -> build/lib/codereviewlab
+copying src/codereviewlab/__init__.py -> build/lib/codereviewlab
+copying src/codereviewlab/extraction.py -> build/lib/codereviewlab
+copying src/codereviewlab/llm.py -> build/lib/codereviewlab
+copying src/codereviewlab/reports.py -> build/lib/codereviewlab
+copying src/codereviewlab/schemas.py -> build/lib/codereviewlab
+copying src/codereviewlab/training.py -> build/lib/codereviewlab
+copying src/codereviewlab/cli.py -> build/lib/codereviewlab
+copying src/codereviewlab/prompts.py -> build/lib/codereviewlab
+running egg_info
+writing src/codereviewlab.egg-info/PKG-INFO
+writing dependency_links to src/codereviewlab.egg-info/dependency_links.txt
+writing entry points to src/codereviewlab.egg-info/entry_points.txt
+writing requirements to src/codereviewlab.egg-info/requires.txt
+writing top-level names to src/codereviewlab.egg-info/top_level.txt
+reading manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/codereviewlab.egg-info/SOURCES.txt'
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/codereviewlab
+copying build/lib/codereviewlab/dataset.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/config.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/static.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/evaluation.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/__init__.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/extraction.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/llm.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/reports.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/schemas.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/training.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/cli.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+copying build/lib/codereviewlab/prompts.py -> build/bdist.linux-x86_64/wheel/./codereviewlab
+running install_egg_info
+Copying src/codereviewlab.egg-info to build/bdist.linux-x86_64/wheel/./codereviewlab-0.1.0-py3.11.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/codereviewlab-0.1.0.dist-info/WHEEL
+creating '/tmp/codereviewlab/dist/.tmp-v4f8m7jk/codereviewlab-0.1.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'codereviewlab/__init__.py'
+adding 'codereviewlab/cli.py'
+adding 'codereviewlab/config.py'
+adding 'codereviewlab/dataset.py'
+adding 'codereviewlab/evaluation.py'
+adding 'codereviewlab/extraction.py'
+adding 'codereviewlab/llm.py'
+adding 'codereviewlab/prompts.py'
+adding 'codereviewlab/reports.py'
+adding 'codereviewlab/schemas.py'
+adding 'codereviewlab/static.py'
+adding 'codereviewlab/training.py'
+adding 'codereviewlab-0.1.0.dist-info/licenses/LICENSE'
+adding 'codereviewlab-0.1.0.dist-info/METADATA'
+adding 'codereviewlab-0.1.0.dist-info/WHEEL'
+adding 'codereviewlab-0.1.0.dist-info/entry_points.txt'
+adding 'codereviewlab-0.1.0.dist-info/top_level.txt'
+adding 'codereviewlab-0.1.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built codereviewlab-0.1.0.tar.gz and codereviewlab-0.1.0-py3-none-any.whl
+Processing ./dist/codereviewlab-0.1.0-py3-none-any.whl
+Installing collected packages: codereviewlab
+  Attempting uninstall: codereviewlab
+    Found existing installation: codereviewlab 0.1.0
+    Uninstalling codereviewlab-0.1.0:
+      Successfully uninstalled codereviewlab-0.1.0
+Successfully installed codereviewlab-0.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system
+package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+
+ Usage: codereviewlab [OPTIONS] COMMAND [ARGS]...
+
+ Python review suggestions requiring human verification.
+
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --install-completion          Install completion for the current shell.      │
+│ --show-completion             Show completion for the current shell, to copy │
+│                               it or customize the installation.              │
+│ --help                        Show this message and exit.                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────╮
+│ doctor            Inspect software and hardware without downloading weights. │
+│ review            Review a Python file using the static baseline by default. │
+│ review-diff       Review changed functions in verified repository post-image │
+│                   files.                                                     │
+│ validate-dataset  Validate schemas, labels, syntax, duplicates, and family   │
+│                   splits.                                                    │
+│ evaluate          Evaluate every row, recording failures and undefined       │
+│                   metrics explicitly.                                        │
+│ train             Validate or explicitly run response-only LoRA/QLoRA        │
+│                   training.                                                  │
+│ compare           Compare compatible recorded evaluations without claiming   │
+│                   significance.                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Python: 3.11.17 | OS: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41
+torch: missing
+transformers: missing
+peft: missing
+trl: missing
+CPU checks and installed-wheel verification completed successfully.

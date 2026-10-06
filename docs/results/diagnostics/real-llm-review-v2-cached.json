@@ -1,0 +1,99 @@
+{
+  "notice": "Review suggestions require human verification.",
+  "issues": [],
+  "results": [
+    {
+      "function": {
+        "path": "examples\\sample.py",
+        "name": "collect",
+        "start_line": 1,
+        "end_line": 3,
+        "code": "def collect(value, items=[]):\n    items.append(value)\n    return items",
+        "context": ""
+      },
+      "status": "parse_error",
+      "findings": [],
+      "error": "ValueError: Model finding is outside the supplied function",
+      "raw_response": "```json\n{\n  \"findings\": [\n    {\n      \"path\": \"examples/sample.py\",\n      \"line\": 3,\n      \"category\": \"boundary_condition\",\n      \"explanation\": \"The function `collect` does not handle cases where `items` is `None`.\",\n      \"suggested_fix\": \"Add a check to ensure `items` is not `None` before appending the value.\"\n    }\n  ]\n}\n```",
+      "metadata": {
+        "backend": "llm",
+        "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+        "prompt_version": "review-v2:basic",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 512,
+          "max_input_tokens": 4096,
+          "seed": 42
+        },
+        "device": "cuda",
+        "latency_seconds": 14.246845099958591,
+        "peak_gpu_memory_bytes": 3140004864,
+        "adapter": null,
+        "adapter_hash": null
+      }
+    },
+    {
+      "function": {
+        "path": "examples\\sample.py",
+        "name": "indexed_total",
+        "start_line": 6,
+        "end_line": 10,
+        "code": "def indexed_total(items):\n    total = 0\n    for index in range(len(items) + 1):\n        total += items[index]\n    return total",
+        "context": ""
+      },
+      "status": "parse_error",
+      "findings": [],
+      "error": "ValidationError: 1 validation error for StructuredResponse\nfindings.0.category\n  Input should be 'boundary_condition', 'none_or_empty' or 'mutable_default' [type=enum, input_value='Boundary Condition', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum",
+      "raw_response": "```json\n{\n  \"findings\": [\n    {\n      \"path\": \"examples/sample.py\",\n      \"line\": 8,\n      \"category\": \"Boundary Condition\",\n      \"explanation\": \"The loop iterates from `0` to `len(items) + 1`, which includes an extra iteration at `len(items)`.\",\n      \"suggested_fix\": \"Change the loop condition to `range(len(items))`.\"\n    }\n  ]\n}\n```",
+      "metadata": {
+        "backend": "llm",
+        "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+        "prompt_version": "review-v2:basic",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 512,
+          "max_input_tokens": 4096,
+          "seed": 42
+        },
+        "device": "cuda",
+        "latency_seconds": 1.6264646999770775,
+        "peak_gpu_memory_bytes": 3142292992,
+        "adapter": null,
+        "adapter_hash": null
+      }
+    },
+    {
+      "function": {
+        "path": "examples\\sample.py",
+        "name": "safe_first",
+        "start_line": 13,
+        "end_line": 14,
+        "code": "async def safe_first(items):\n    return items[0] if items else None",
+        "context": ""
+      },
+      "status": "ok",
+      "findings": [],
+      "error": null,
+      "raw_response": "```json\n{\n  \"findings\": []\n}\n```",
+      "metadata": {
+        "backend": "llm",
+        "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+        "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+        "prompt_version": "review-v2:basic",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 512,
+          "max_input_tokens": 4096,
+          "seed": 42
+        },
+        "device": "cuda",
+        "latency_seconds": 0.21866910002427176,
+        "peak_gpu_memory_bytes": 3140100608,
+        "adapter": null,
+        "adapter_hash": null
+      }
+    }
+  ]
+}

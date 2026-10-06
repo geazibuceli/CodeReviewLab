@@ -1,0 +1,39 @@
+{
+  "metrics": {
+    "examples": 84,
+    "processed": 84,
+    "failures": 0,
+    "coverage": 1.0,
+    "true_positives": 0,
+    "false_positives": 0,
+    "expected_bugs": 42,
+    "finding_precision": null,
+    "bug_recall": 0.0,
+    "correct_function_false_positive_rate": 0.0,
+    "localization_accuracy": null,
+    "valid_output_rate": 1.0,
+    "mean_latency_seconds": 0.12468057262317632,
+    "peak_gpu_memory_bytes": 3165673984
+  },
+  "dataset_sha256": "f4007402ebb2aaa5c552d1996c44f18b7e3446eaf5e4e67d4e9a94a7f8f00494",
+  "config": {
+    "backend": "llm",
+    "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "revision": "2e1fd397ee46e1388853d2af2c993145b0f1098a",
+    "prompt": "few-shot",
+    "device": "auto",
+    "max_input_tokens": 4096,
+    "max_new_tokens": 512,
+    "seed": 42,
+    "adapter": null,
+    "allow_download": false
+  },
+  "matching_version": "category-line-v1",
+  "prompt_versions": [
+    "review-v3:few-shot"
+  ],
+  "output_parsing_version": "json-envelope-v1",
+  "adjudication_sha256": null,
+  "adjudications": [],
+  "notice": "Controlled synthetic benchmark; not real-repository performance."
+}

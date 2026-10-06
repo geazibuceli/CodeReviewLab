@@ -1,0 +1,9 @@
+dataset: data/training-fixture.jsonl
+evaluation_datasets: [data/dev.jsonl, data/test.jsonl]
+output_dir: checkpoints/fixture
+fixture_only: true
+epochs: 1
+gradient_accumulation_steps: 1
+inference:
+  backend: llm
+  max_input_tokens: 2048

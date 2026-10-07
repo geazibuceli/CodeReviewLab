@@ -12,7 +12,7 @@ class StaticReviewer:
         started = time.perf_counter()
         tree = ast.parse(textwrap.dedent(function.code))
         findings = []
-        root = next(n for n in tree.body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)))
+        root = next(n for n in tree.body if isinstance(n, ast.FunctionDef | ast.AsyncFunctionDef))
 
         def add(node, category, explanation, fix):
             findings.append(
@@ -28,13 +28,13 @@ class StaticReviewer:
         def nodes(node):
             yield node
             for child in ast.iter_child_nodes(node):
-                if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+                if isinstance(child, ast.FunctionDef | ast.AsyncFunctionDef | ast.ClassDef):
                     continue
                 yield from nodes(child)
 
         defaults = [*root.args.defaults, *[d for d in root.args.kw_defaults if d is not None]]
         for default in defaults:
-            if isinstance(default, (ast.List, ast.Dict, ast.Set)) or (
+            if isinstance(default, ast.List | ast.Dict | ast.Set) or (
                 isinstance(default, ast.Call)
                 and isinstance(default.func, ast.Name)
                 and default.func.id in {"list", "dict", "set"}
@@ -50,8 +50,8 @@ class StaticReviewer:
         for node in nodes(root):
             if isinstance(node, ast.Compare) and len(node.ops) == 1:
                 left, right, op = node.left, node.comparators[0], node.ops[0]
-                if isinstance(op, (ast.Is, ast.IsNot)) and any(
-                    isinstance(n, (ast.List, ast.Dict, ast.Set)) for n in (left, right)
+                if isinstance(op, ast.Is | ast.IsNot) and any(
+                    isinstance(n, ast.List | ast.Dict | ast.Set) for n in (left, right)
                 ):
                     add(
                         node,

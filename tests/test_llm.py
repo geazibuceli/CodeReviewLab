@@ -7,7 +7,7 @@ import pytest
 
 from codereviewlab.config import ReviewConfig
 from codereviewlab.extraction import extract_source
-from codereviewlab.llm import LLMReviewer
+from codereviewlab.llm import LLMReviewer, model_source, parse_response
 
 
 class Tensor:
@@ -89,3 +89,26 @@ def test_model_load_failure_is_not_empty_success(monkeypatch):
     monkeypatch.setattr(reviewer, "load", failure)
     result = reviewer.review(extract_source("def f():\n    return 1", "x.py")[0][0])
     assert result.status == "inference_error" and "offline" in result.error
+
+
+def test_parse_response_and_model_source_handle_offline_and_fenced_payloads(monkeypatch):
+    assert parse_response('  ```json\n{"findings": []}\n```  ').findings == []
+    with pytest.raises(ValueError):
+        parse_response('```json\n{"findings": [}\n```')
+
+    calls = []
+
+    def snapshot_download(**kwargs):
+        calls.append(kwargs)
+        return "/snapshot-cache"
+
+    monkeypatch.setitem(
+        sys.modules,
+        "huggingface_hub",
+        types.SimpleNamespace(snapshot_download=snapshot_download),
+    )
+    cfg = ReviewConfig(backend="llm", allow_download=False)
+    assert model_source(cfg) == "/snapshot-cache"
+    assert calls == [{"repo_id": cfg.model, "revision": cfg.revision, "local_files_only": True}]
+    cfg.allow_download = True
+    assert model_source(cfg) == cfg.model

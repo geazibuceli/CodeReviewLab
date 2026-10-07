@@ -17,16 +17,16 @@ def extract_source(source: str, path: str, max_lines: int = 200) -> tuple[list, 
     imports = [
         ast.get_source_segment(source, n) or ""
         for n in tree.body
-        if isinstance(n, (ast.Import, ast.ImportFrom))
+        if isinstance(n, ast.Import | ast.ImportFrom)
     ]
     context = "\n".join(imports)[:4000]
     functions, issues = [], []
 
     def visit(node, parents=()):
         for child in ast.iter_child_nodes(node):
-            scoped = isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef))
+            scoped = isinstance(child, ast.FunctionDef | ast.AsyncFunctionDef | ast.ClassDef)
             name = (*parents, child.name) if scoped else parents
-            if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            if isinstance(child, ast.FunctionDef | ast.AsyncFunctionDef):
                 start = min([child.lineno] + [d.lineno for d in child.decorator_list])
                 end = child.end_lineno
                 if end - start + 1 > max_lines:

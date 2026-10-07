@@ -11,21 +11,14 @@ the LLM path is optional and intentionally constrained.
 
 ## Architecture at a glance
 
-```text
-Python source / post-image diff
-        |
-        v
-  extraction + validation
-        |
-        +--> static reviewer
-        |
-        +--> optional LLM reviewer
-        |
-        v
-  review artifacts + structured metrics
-        |
-        v
-  human validation / recorded benchmark evaluation
+```mermaid
+flowchart TD
+    Input["Python source / post-image diff"] --> Extract["Extraction + validation"]
+    Extract --> Static["Static reviewer"]
+    Extract --> LLM["Optional LLM reviewer"]
+    Static --> Artifacts["Review artifacts + structured metrics"]
+    LLM --> Artifacts
+    Artifacts --> Human["Human validation / recorded benchmark evaluation"]
 ```
 
 Core responsibilities are deliberately separated:

@@ -13,7 +13,7 @@ jobs:
           python-version: '${{ matrix.python }}'
       - run: python -m pip install -e '.[dev]'
       - run: ruff check .
-      - run: pytest
+      - run: pytest --cov=src/codereviewlab --cov-report=term-missing --cov-fail-under=75
       - run: python -m build
       - run: python -m pip install --force-reinstall --no-deps dist/*.whl
       - run: cd /tmp && codereviewlab --help && codereviewlab doctor

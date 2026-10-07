@@ -159,6 +159,28 @@ def test_dataset_balance_family_splits_and_reproducibility():
         validate_collections([rows[0], modified])
 
 
+def test_benchmark_edge_cases_cover_all_categories_and_expected_bounds():
+    rows = load_dataset(ROOT / "data/benchmark.jsonl")
+    expected = {
+        "boundary_condition": 20,
+        "none_or_empty": 20,
+        "mutable_default": 20,
+    }
+    actual = {
+        category: sum(
+            1 for row in rows for finding in row.expected_findings if finding.category == category
+        )
+        for category in expected
+    }
+    assert actual == expected
+    assert {row.buggy for row in rows} == {True, False}
+    assert all(
+        (row.buggy and row.expected_findings) or ((not row.buggy) and not row.expected_findings)
+        for row in rows
+    )
+    assert all(all(finding.accepted_lines for finding in row.expected_findings) for row in rows)
+
+
 def test_prompts_have_only_unlabeled_input():
     example = load_dataset(ROOT / "data/dev.jsonl")[0]
     payload = json.loads(messages(example.function)[-1]["content"])
@@ -220,6 +242,69 @@ def test_cli_help_review_errors_and_training_validation(tmp_path, monkeypatch):
         ).exit_code
         == 0
     )
+
+
+def test_cli_doctor_and_review_diff_smoke(tmp_path):
+    runner = CliRunner()
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    source = repo / "sample.py"
+    source.write_text("def f(items=[]):\n    return items\n", encoding="utf-8")
+    diff = repo / "changes.diff"
+    diff.write_text(
+        "diff --git a/sample.py b/sample.py\n"
+        "--- a/sample.py\n"
+        "+++ b/sample.py\n"
+        "@@ -1,2 +1,2 @@\n"
+        "-def f(items=None):\n"
+        "+def f(items=[]):\n"
+        "     return items\n",
+        encoding="utf-8",
+    )
+    assert runner.invoke(app, ["doctor"]).exit_code == 0
+    output = tmp_path / "diff-report.json"
+    result = runner.invoke(
+        app,
+        ["review-diff", str(diff), "--repo", str(repo), "--output", str(output)],
+    )
+    assert result.exit_code == 0, result.output
+    assert output.exists()
+
+
+def test_cli_compare_accepts_matching_payloads_and_rejects_mismatch(tmp_path):
+    runner = CliRunner()
+    base = tmp_path / "base.json"
+    candidate = tmp_path / "candidate.json"
+    output = tmp_path / "comparison.md"
+    payload = {
+        "dataset_sha256": "abc",
+        "matching_version": "v1",
+        "adjudication_sha256": "def",
+        "prompt_versions": {"static": "p1"},
+        "output_parsing_version": "v1",
+        "config": {
+            "model": "test-model",
+            "revision": "main",
+            "prompt": "baseline",
+            "device": "cpu",
+            "max_new_tokens": 32,
+            "max_input_tokens": 256,
+            "seed": 7,
+        },
+        "metrics": {"precision": 1.0, "recall": 0.5},
+    }
+    base.write_text(json.dumps(payload), encoding="utf-8")
+    candidate.write_text(json.dumps(payload), encoding="utf-8")
+    result = runner.invoke(app, ["compare", str(base), str(candidate), "--output", str(output)])
+    assert result.exit_code == 0, result.output
+    assert output.exists()
+
+    changed = json.loads(candidate.read_text(encoding="utf-8"))
+    changed["dataset_sha256"] = "xyz"
+    candidate.write_text(json.dumps(changed), encoding="utf-8")
+    result = runner.invoke(app, ["compare", str(base), str(candidate), "--output", str(output)])
+    assert result.exit_code == 2
+    assert "differs" in result.output
 
 
 def test_training_mask_and_template_mismatch():
